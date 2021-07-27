@@ -3,10 +3,10 @@
 rely on https://www.v2ray.com/  
 
 > **speed rank**
-> 1. [ws](https://github.com/pphui8/v2ray-config.json/edit/main/README.md/#ws)
-> 2. [mkcp](https://github.com/pphui8/v2ray-config.json/edit/main/README.md/#mkcp)
-> 3. [tcp](https://github.com/pphui8/v2ray-config.json/edit/main/README.md/#tcp)
-> 4. [shadowsocks](https://github.com/pphui8/v2ray-config.json/edit/main/README.md/#shadowsocks)
+> 1. [ws](https://github.com/pphui8/v2ray-config.json/blob/main/README.md/#ws)
+> 2. [mkcp](https://github.com/pphui8/v2ray-config.json/blob/main/README.md/#mkcp)
+> 3. [tcp](https://github.com/pphui8/v2ray-config.json/blob/main/README.md/#tcp)
+> 4. [shadowsocks](https://github.com/pphui8/v2ray-config.json/blob/main/README.md/#shadowsocks)
 
 ## ws
 ```json
