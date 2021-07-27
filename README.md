@@ -1,6 +1,10 @@
 # v2ray-config.json
 
 > rely on https://www.v2ray.com/
+speed rank
+1. mkcp
+2. tcp
+3. shaodwsocks
 
 ## tcp trans
 ```json
@@ -70,6 +74,28 @@
   "outbounds": [
     {
       "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}
+```
+
+```shadowsocks
+{
+  "inbounds": [
+    {
+      "port": xxxx,
+      "protocol": "shadowsocks",
+      "settings": {
+        "method": "aes-128-gcm",
+        "ota": true,
+        "password": "xxxxxxxxx"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",  
       "settings": {}
     }
   ]
