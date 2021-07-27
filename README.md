@@ -1,10 +1,78 @@
 # v2ray-config.json
 
-> rely on https://www.v2ray.com/
-speed rank
-1. mkcp
-2. tcp
-3. shaodwsocks
+rely on https://www.v2ray.com/  
+
+> **speed rank**
+> 1. [ws](https://github.com/pphui8/v2ray-config.json/edit/main/README.md/#ws)
+> 2. [mkcp](https://github.com/pphui8/v2ray-config.json/edit/main/README.md/#mkcp)
+> 3. [tcp](https://github.com/pphui8/v2ray-config.json/edit/main/README.md/#tcp)
+> 4. [shadowsocks](https://github.com/pphui8/v2ray-config.json/edit/main/README.md/#shadowsocks)
+
+## ws
+```json
+{
+  "inbounds": [
+    {
+      "port": xxxx,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "xxxxxxxxxxxxxx",
+            "alterId": 64
+          }
+        ]
+      },
+      "streamSettings": {
+        "network":"ws"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}
+```
+
+## mkcp  
+```json
+{
+  "inbounds": [
+    {
+      "port": xxxx,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "xxxxxxxxxxxxxxxxx",
+            "alterId": 64
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "mkcp",
+        "kcpSettings": {
+          "uplinkCapacity": 5,
+          "downlinkCapacity": 100,
+          "congestion": true,
+          "header": {
+            "type": "none"
+          }
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}
+```
 
 ## tcp trans
 ```json
@@ -15,7 +83,7 @@ speed rank
       "settings": {
         "clients": [
           {
-            "id": "xxxx",
+            "id": "xxxxxxxxxxxxxx",
             "level": 1,
             "alterId": 64
           }
@@ -42,43 +110,6 @@ speed rank
   }
 ```
 
-
-## mkcp  
-```json
-{
-  "inbounds": [
-    {
-      "port": xxxx,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "xxxx",
-            "alterId": 64
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "mkcp",
-        "kcpSettings": {
-          "uplinkCapacity": 5,
-          "downlinkCapacity": 100,
-          "congestion": true,
-          "header": {
-            "type": "none"
-          }
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    }
-  ]
-}
-```
 ## shadowsocks
 ```shadowsocks
 {
@@ -89,7 +120,7 @@ speed rank
       "settings": {
         "method": "aes-128-gcm",
         "ota": true,
-        "password": "xxxxxxxxx"
+        "password": "xxxxxxxxxxxxx"
       }
     }
   ],
