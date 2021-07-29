@@ -1,6 +1,7 @@
 # v2ray-config.json
 
 rely on https://www.v2ray.com/  
+> /usr/local/etc/v2ray/config.json  
 
 > **speed rank**
 > 1. [ws](https://github.com/pphui8/v2ray-config.json/blob/main/README.md/#ws)
