@@ -41,6 +41,13 @@ rely on https://www.v2ray.com/
 ## mkcp  
 ```json
 {
+  "log": {
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log",
+    "loglevel": "warning"
+  },
+  "dns": {},
+  "stats": {},
   "inbounds": [
     {
       "port": xxxx,
@@ -48,30 +55,46 @@ rely on https://www.v2ray.com/
       "settings": {
         "clients": [
           {
-            "id": "xxxxxxxxxxxxxxxxx",
+            "id": "xxxxxxxxx",
             "alterId": 64
           }
         ]
       },
+      "tag": "in-0",
       "streamSettings": {
-        "network": "mkcp",
-        "kcpSettings": {
-          "uplinkCapacity": 5,
-          "downlinkCapacity": 100,
-          "congestion": true,
-          "header": {
-            "type": "none"
-          }
-        }
+        "network": "kcp",
+        "security": "none",
+        "kcpSettings": {}
       }
     }
   ],
   "outbounds": [
     {
+      "tag": "direct",
       "protocol": "freedom",
       "settings": {}
+    },
+    {
+      "tag": "blocked",
+      "protocol": "blackhole",
+      "settings": {}
     }
-  ]
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "blocked"
+      }
+    ]
+  },
+  "policy": {},
+  "reverse": {},
+  "transport": {}
 }
 ```
 
