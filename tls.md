@@ -1,6 +1,7 @@
 ## https://blog.dbnuo.com/20191030/ztkytl.html
 ## https://blog.csdn.net/wudinaniya/article/details/103284695
-
+turn off SElinux  
+```setsebool -P httpd_can_network_connect 1```
 ```conf
 server {
         listen 443 ssl;
