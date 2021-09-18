@@ -17,6 +17,7 @@ server {
         ssl_stapling on;
         ssl_stapling_verify on;
         server_name pphui8.me;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
         ssl_ciphers HIGH:!aNULL:!MD5;
         ssl_prefer_server_ciphers on;
@@ -25,18 +26,22 @@ server {
             return 403;
         }
 
-        location /ray {
-            proxy_pass       http://127.0.0.1:7789;
-            proxy_redirect             off;
-            proxy_http_version         1.1;
-            proxy_set_header Upgrade   $http_upgrade;
-            proxy_set_header Connection "upgrade";
-            proxy_set_header Host      $http_host;
-        }
-
         location / {
             root /data/www/;
             index index.html;
+        }
+
+        location /ray { # 与 V2Ray 配置中的 path 保持一致
+            proxy_redirect off;
+            proxy_pass http://127.0.0.1:7789;#假设WebSocket监听在环回地址的10000端口上
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+            proxy_set_header Host $http_host;
+
+            # Show realip in v2ray access.log
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
 
         error_page 404 403 400 500 502 503 504  /error.html;
