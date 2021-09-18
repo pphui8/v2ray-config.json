@@ -9,26 +9,29 @@ rely on https://www.v2ray.com/
 > 3. [tcp](https://github.com/pphui8/v2ray-config.json/blob/main/README.md/#tcp)
 > 4. [shadowsocks](https://github.com/pphui8/v2ray-config.json/blob/main/README.md/#shadowsocks)
 
-## ws
+## ws(with tls on)
 ```json
 {
   "inbounds": [
     {
-      "port": xxxx,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "xxxxxxxxxxxxxx",
-            "alterId": 64
-          }
-        ]
-      },
-      "streamSettings": {
-        "network":"ws"
-      }
-    }
-  ],
+        "port": 7789,
+        "listen":"127.0.0.1",
+        "protocol": "vmess",
+        "settings": {
+            "clients": [
+            {
+                "id": "cd73c73a-b519-e59e-2b25-b990c9925f5b",
+                "alterId": 64
+            }
+            ]
+        },
+        "streamSettings": {
+                "network": "ws",
+                "wsSettings": {
+                "path": "/ray"
+            }
+        }
+    },
   "outbounds": [
     {
       "protocol": "freedom",
