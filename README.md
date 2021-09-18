@@ -14,13 +14,13 @@ rely on https://www.v2ray.com/
 {
   "inbounds": [
     {
-        "port": 7789,
+        "port": xxxx,
         "listen":"127.0.0.1",
         "protocol": "vmess",
         "settings": {
             "clients": [
             {
-                "id": "cd73c73a-b519-e59e-2b25-b990c9925f5b",
+                "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "alterId": 64
             }
             ]
