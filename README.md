@@ -1,3 +1,13 @@
+# transit setting(by nginx)
+```conf
+stream {
+  server {
+  listen: port;
+  proxy_pass: ip:port;
+  }
+}
+```
+
 # v2ray-config.json
 
 rely on https://www.v2ray.com/  
