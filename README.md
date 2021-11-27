@@ -2,8 +2,8 @@
 ```conf
 stream {
   server {
-  listen: port;
-  proxy_pass: ip:port;
+    listen: port;
+    proxy_pass: ip:port;
   }
 }
 ```
