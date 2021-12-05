@@ -6,6 +6,12 @@ turn off SElinux
 ```setsebool -P httpd_can_network_connect 1```
 ```conf
 server {
+        listen       80;
+        server_name  localhost;
+        rewrite ^(.*)$ https://$host$1 permanent;    
+}
+
+server {
         listen 443 ssl;
         server_name pphui8.me;
 
