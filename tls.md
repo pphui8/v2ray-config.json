@@ -1,5 +1,3 @@
-# 注意使用```certbot certonly```来获取证书（test.org的有问题）
-
 # how to install
 1. install EPEL  
 ```yum -y install epel-release```
