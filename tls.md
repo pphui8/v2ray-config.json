@@ -1,9 +1,13 @@
-## https://blog.dbnuo.com/20191030/ztkytl.html
-## https://blog.csdn.net/wudinaniya/article/details/103284695
-
 # 注意使用```certbot certonly```来获取证书（test.org的有问题）
-turn off SElinux  
-```setsebool -P httpd_can_network_connect 1```
+
+# how to install
+1. install EPEL  
+```yum -y install epel-release```
+2. install certbot  
+```yum -y install certbot```
+3. get certificate  
+```certbot certonly```  
+
 ```conf
 server {
         listen       80;
